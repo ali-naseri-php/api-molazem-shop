@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\indexProductResource;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use function MongoDB\BSON\toJSON;
 
 class ProductController extends Controller
 {
@@ -12,6 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+
+        $data= Product::all();
+return response( indexProductResource::collection($data),200);
 
     }
 
