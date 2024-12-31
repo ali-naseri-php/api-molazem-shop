@@ -10,4 +10,15 @@ class Product extends Model
         'Chalanges' => 'array',  // فیلد chalanges را به‌صورت آرایه در نظر می‌گیرد
         'Solution' => 'array',  // فیلد Solution را به‌صورت آرایه در نظر می‌گیرد
     ];
+    protected $fillable = [
+        'ProjectName',
+        'location',
+        'picture',
+        'typeProject',
+        'customer',
+        'discription',
+        'StartYearProject',
+        'Chalanges',
+        'Solution',
+    ];
 }
