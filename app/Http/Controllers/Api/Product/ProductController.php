@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\indexProductResource;
+use App\Http\Resources\ShowProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -41,11 +42,16 @@ class ProductController extends Controller
 
     /**
      * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+     */public function show(string $id)
+{
+    $product = Product::find($id);
+
+    if (!$product) {
+        return response()->json(['message' => 'Product not found'], 404);
     }
+
+    return new ShowProductResource($product);
+}
 
     /**
      * Show the form for editing the specified resource.
