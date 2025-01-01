@@ -50,7 +50,7 @@ class ProductController extends Controller
         return response()->json(['message' => 'Product not found'], 404);
     }
 
-    return new ShowProductResource($product);
+    return response( new ShowProductResource($product),200);
 }
 
     /**
